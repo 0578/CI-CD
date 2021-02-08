@@ -7,5 +7,5 @@ hooks:
   ApplicationStart:
     - location: 
       timeout: 300
-      runas: root
+      runas: ubuntu
       
