@@ -1,0 +1,11 @@
+version: 0.0
+os: ubuntu
+files:
+  - source: /
+    destination: /home/ubuntu/CI-CD
+hooks:
+  ApplicationStart:
+    - location: 
+      timeout: 300
+      runas: root
+      
