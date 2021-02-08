@@ -1,0 +1,41 @@
+## Release History
+- 2.2.1 (2016 Sep 6)
+    - [[MOOC-7](https://jira.smartsparrow.com/browse/MOOC-7)] Restrict aim movement when one of the inputs is locked
+- 2.2.0 (2016 May 27)
+    - [[LDS-4987](https://jira.smartsparrow.com/browse/LDS-4987)] Add capi property: enable/disable showing tooltips on targets
+    - [[LDS-4907](https://jira.smartsparrow.com/browse/LDS-4907)] Calculate precise collision point on targets
+- 2.1.1 (2016 APR 12)
+    - [[EXTDW-333](https://jira.smartsparrow.com/browse/EXTDW-333)] Cannot set Canon Angle through Initial State in Platform.
+- 2.1.0 (2016 Jan 18)
+    - [[IST-3883](https://jira.smartsparrow.com/browse/IST-3883)] Projectile Motion Sim: Tooltip is no longer obscured
+    - [[IST-4012](https://jira.smartsparrow.com/browse/IST-4012)] Projectile Motion Sim: Aim handle becomes hidden while bullet is in air.
+- 2.0.0 (2015 DEC 04)
+    - [[IST-3935](https://jira.smartsparrow.com/browse/IST-3935)] Projectile Motion Sim: expose capi initialYVelocity
+    - [[IST-3802](https://jira.smartsparrow.com/browse/IST-3802)] Projectile : Expose capi properties
+        - Expose new CAPI properties:
+            - Cannon.Time Of Flight
+            - Cannon.Initial X Velocity
+            - Cannon.Disatance Travelled
+        - Target tooltip distance shown in meters
+        - Target Y distance now is positive above line of reference, negative below
+        - Cannon ball disappears once it hits a target
+- 1.0.0 (2015 Nov 02)
+    - [[EXT-105](https://jira.smartsparrow.com/browse/EXT-105)] Dragging targets
+    - [[EXT-106](https://jira.smartsparrow.com/browse/EXT-106)] Hitting a target
+    - [[EXT-104](https://jira.smartsparrow.com/browse/EXT-104)] Read-only calculations for CAPI
+    - [[EXT-103](https://jira.smartsparrow.com/browse/EXT-103)] Acceleration and Velocity vectors
+    - [[EXT-102](https://jira.smartsparrow.com/browse/EXT-102)] Show bullet ghosts
+    - [[EXT-101](https://jira.smartsparrow.com/browse/EXT-101)] Number of projectiles
+    - [[EXT-100](https://jira.smartsparrow.com/browse/EXT-100)] Fire button states
+    - [[EXT-99](https://jira.smartsparrow.com/browse/EXT-99)] Add ability to fire projectile
+    - [[EXT-98](https://jira.smartsparrow.com/browse/EXT-98)] Target Info
+    - [[EXT-96](https://jira.smartsparrow.com/browse/EXT-96)] Implement angle line
+    - [[EXT-97](https://jira.smartsparrow.com/browse/EXT-97)] Add targets
+    - [[EXT-96](https://jira.smartsparrow.com/browse/EXT-96)] Implement angle line
+    - [[EXT-95](https://jira.smartsparrow.com/browse/EXT-95)] Add Trajectory Path
+    - [[EXT-94](https://jira.smartsparrow.com/browse/EXT-94)] Make cannon draggable
+    - [[EXT-93](https://jira.smartsparrow.com/browse/EXT-93)] Add angle input box to scene
+    - [[EXT-92](https://jira.smartsparrow.com/browse/EXT-92)] Add exit velocity input box to scene
+    - [[EXT-91](https://jira.smartsparrow.com/browse/EXT-91)] Add background elements to scene
+- 0.1.0
+    - Base project

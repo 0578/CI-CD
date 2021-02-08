@@ -1,0 +1,28 @@
+{
+    "name": "unsw-eng-projectile-motion",
+    "version": "2.2.1",
+    "dependencies": {
+        "jquery": "2.1.0",
+        "requirejs": "~2",
+        "requirejs-text": "~2",
+        "mocha": "~1.8.1",
+        "chai": "~1.8",
+        "sinon" : "~1.10.3",
+        "almond": "~0.2",
+        "backbone": "~1.0.0",
+        "underscore": ">=1.4.2",
+        "check-js" : "~0.1",
+        "simcapi": "git@github.com:SmartSparrow/pipit-js.git",
+        "common" : "git@github.com:SmartSparrow/sim-common.git",
+        "sceneManager": "git@github.com:SmartSparrow/scene-manager.git",
+        "componentLibrary-Renderers": "git@github.com:SmartSparrow/componentLibrary-Renderers.git",
+        "componentLibrary-Utils": "git@github.com:SmartSparrow/componentLibrary-Utils.git",
+        "componentLibrary-Sync": "git@github.com:SmartSparrow/componentLibrary-Sync.git#0.3.0",
+        "componentLibraryJQueryUI": "git@github.com:SmartSparrow/componentLibrary-JQueryUI.git",
+        "jquery-ui-touch-punch": "git@github.com:SmartSparrow/jquery-ui-touch-punch.git"
+
+    },
+    "resolutions": {
+        "chai": "~1.10"
+    }
+}

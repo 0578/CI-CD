@@ -1,0 +1,388 @@
+@imgPath: "<%= imagePath %>";
+
+@import url('//fonts.googleapis.com/css?family=Roboto:400,300');
+@import "../../bower_components/common/app/styles/notSupported.less";
+@import "animations.less";
+@import "mixin.less";
+
+.scene {
+    width: 525px;
+    height: 500px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('@{imgPath}/background.jpg') no-repeat 0 0;
+    overflow: hidden;
+}
+
+.boundaries {
+    height: 492px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.cannon {
+    width: 62px;
+    height: 28px;
+    position: absolute;
+    top: 288px;
+    left: 12px;
+    .transform-origin( 100%, 50% );
+    background: url('@{imgPath}/cannon.png') no-repeat 0 0;
+    z-index: 10;
+}
+
+.exitVelocity {
+    position: absolute;
+    top: 302px;
+    left: 74px;
+    width: 150px;
+    height: 0;
+    transform-origin: 0 0;
+    z-index: 100;
+    &.isHidden { display: none; }
+    input{
+        position: absolute;
+        top: -70px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+    label{
+        position: absolute;
+        top: -35px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+.angle {
+    position: absolute;
+    top: 302px;
+    left: 74px;
+    width: 150px;
+    height: 0;
+    z-index: 100;
+    &.isHidden { display: none; }
+    input{
+        position: absolute;
+        top: 15px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+    label{
+        position: absolute;
+        top: 50px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+.aim {
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: 100;
+    &.isHidden, &.angleDisabled.velocityDisabled { display: none; }
+    &::before {
+        content: '';
+        width: 23px;
+        height: 23px;
+        position: absolute;
+        top: -11px;
+        left: -11px;
+        background: url('@{imgPath}/blueIcon.png') no-repeat 0 0;
+        display: block;
+    }
+}
+
+input {
+    width: 50px;
+    height: 30px;
+    font: 300 14px Roboto;
+    color: #565656;
+    border: 2px solid transparent;
+    text-align: center;
+    line-height: 30px;
+    padding: 0;
+    box-sizing: border-box;
+    &:focus, &.focused {
+        border-color: #07b9ed;
+        outline: 0;
+    }
+    &:disabled {
+        cursor: default;
+        background-color: transparent;
+        border-color: transparent;
+    }
+}
+
+label {
+    font: 400 14px Roboto;
+    color: #565656;
+}
+
+.trajectoryPath {
+    display: block;
+    z-index: 0;
+}
+
+.ball, .ballGhostX, .ballGhostY {
+    background: url('@{imgPath}/cannonball.png');
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+
+    &:before {
+        background: url('@{imgPath}/cannonball.png');
+        content: " ";
+        height: 9px;
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        width: 9px;
+    }
+}
+.ballGhostX, .ballGhostY {
+    opacity: 0.3;
+}
+.ballGhostX {
+    top: 302px;
+}
+.ballGhostY {
+    left: 74px;
+}
+
+.fire {
+    background-color: #1ebaed;
+    border-radius: 43px;
+    color: #fff;
+    cursor: pointer;
+    font: normal normal 14px/43px Roboto;
+    height: 43px;
+    position: absolute;
+    bottom: 50px;
+    left: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    width: 43px;
+    z-index: 19;
+
+    &:hover {
+        background-color: lighten(#1ebaed, 5%);
+    }
+    &:active {
+        background-color: lighten(#1ebaed, 5%);
+        transform: translate(0, 1px);
+    }
+    &.disabled {
+        background-color: #B5C0C5;
+        color: #939492;
+        cursor: default;
+        transform: none;
+    }
+}
+
+.bullets {
+    height: 10px;
+    position: absolute;
+    top: 372px;
+    left: 24px;
+
+    &:before {
+        background: url('@{imgPath}/cannonballs.png');
+        content: " ";
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: -5px;
+        left: 0;
+    }
+
+    &:after {
+        background-color: #e47a70;
+        content: " ";
+        display: block;
+        height: 4px;
+        position: relative;
+        left: -5px;
+        width: 52px;
+        z-index: 1;
+    }
+
+    &.showNone {
+        &:before {
+            width: 0;
+        }
+    }
+
+    &.showOne {
+        &:before {
+            width: 12px;
+        }
+    }
+    &.showTwo {
+        &:before {
+            width: 30px;
+        }
+    }
+    &.showThree {
+        &:before {
+            width: 42px;
+        }
+    }
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    &.isHidden { display: none; }
+    &.cannonPath, &.anglePath { z-index: 2; }
+    &.trajectoryPath { z-index: 1; }
+}
+
+.targets {
+    height: 492px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 9;
+
+    .target {
+        height: 0;
+        position: absolute;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        width: 0;
+        
+        &:before {
+            background-color: #757A81;
+            content: " ";
+            display: block;
+            height: 470px;
+            position: absolute;
+            top: 5px;
+            left: 1px;
+            width: 2px;
+            z-index: 0;
+        }
+
+        &:after {
+            background: url('@{imgPath}/target.png') no-repeat 0 0;
+            content: " ";
+            display: block;
+            height: 34px;
+            position: absolute;
+            left: -6px;
+            top: -17px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            width: 17px;
+            z-index: 1;
+        }
+
+        &.destroyed {
+            &:after {
+                display: none;
+            }
+        }
+
+        &.chipped {
+            &:after {
+                background-position: -51px 0;
+            }
+        }
+
+        &.chippedTop {
+            &:after {
+                background-position: -17px 0;
+            }
+        }
+
+        &.chippedBottom {
+            &:after {
+                background-position: -34px 0;
+            }
+        }
+
+        .explosion {
+            background: url('@{imgPath}/explosion.png') no-repeat 31px 0;
+                height: 19px;
+            position: absolute;
+            top: -9px;
+            left: -6px;
+            width: 31px;
+
+            &.animate {
+                animation-name: explosion;
+                animation-duration: 0.5s;
+                animation-iteration-count: 1;
+                animation-steps: 13;
+            }
+        }
+    }
+}
+.cannonPath { z-index: 2; }
+.trajectoryPath { z-index: 1; }
+
+.aim {
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: 200;
+    &.isHidden { display: none; }
+    &::before {
+        content: '';
+        width: 23px;
+        height: 23px;
+        position: absolute;
+        top: -11px;
+        left: -11px;
+        background: url('@{imgPath}/blueIcon.png') no-repeat 0 0;
+        display: block;
+    }
+}
+
+
+.tooltip {
+    background-color: #e23c2c;
+    color: #fff;
+    font: 300 14px Roboto;
+    padding: 6px 9px;
+    position: absolute;
+    text-align: right;
+    z-index: 300;
+    top: -23px;
+    width: 175px;
+    left: -198px;
+
+    &.right{
+        left: 13px;
+    }
+
+    div {
+        white-space: nowrap;
+    }
+}
